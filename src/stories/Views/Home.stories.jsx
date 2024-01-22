@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../App'
 import { StoreMock } from "../mocks/utils";
-import { DEFAULTMOCKEDSTATE, FINISHEDMOCKEDSTATE, ANSWEREDMOCKEDSTATE } from "../mocks/constants";
+import { DEFAULTMOCKEDSTATE, FINISHEDMOCKEDSTATE } from "../mocks/constants";
 
 export default {
     title: 'Views/Home',
@@ -15,9 +15,7 @@ export default {
         (Story) => (
             <ThemeProvider theme={theme}>
                 < MemoryRouter >
-                    <StoreMock testResultsboxState={DEFAULTMOCKEDSTATE}>
-                        <Story />
-                    </StoreMock >
+                    <Story />
                 </MemoryRouter >
             </ThemeProvider>
         )
@@ -25,4 +23,20 @@ export default {
 };
 
 export const Default = {
+    decorators: [
+        (Story) => (
+            <StoreMock testResultsboxState={DEFAULTMOCKEDSTATE}>
+                <Story />
+            </StoreMock >
+        )
+    ],
+};
+export const TestFinished = {
+    decorators: [
+        (Story) => (
+            <StoreMock testResultsboxState={FINISHEDMOCKEDSTATE}>
+                <Story />
+            </StoreMock >
+        )
+    ],
 };

@@ -1,10 +1,13 @@
 import React, { useEffect, useState, createContext } from 'react'
 import TestHeader from '../../components/TestHeader'
+import { useSelector } from "react-redux"
 import LoadingBar from '../../components/LoadingBar'
-import TestBody from '../../components/TestBody'
 import TestFooter from '../../components/TestFooter'
+import TestBody from '../../components/TestBody'
+import Calification from '../../components/Calification'
 import { AnswersProvider } from '../../contexts/AnswerContext'
 import { loadTest } from '../../services/testService'
+import EmptyTest from '../../components/EmptyTest'
 import { Test as TestDiv } from './index.styles'
 
 export const AnswersContext = createContext(null);
@@ -13,6 +16,7 @@ const Test = () => {
 
     const [isLoading, setIsLoading] = useState(true)
     const [test, setTest] = useState({})
+    const finished = useSelector((state) => state.testResults.finished);
 
     useEffect(() => {
         loadData()
@@ -24,15 +28,23 @@ const Test = () => {
         setIsLoading(false)
     }
 
+    const tryAgain = () => {
+        setIsLoading(true)
+        loadData();
+    }
+
     return (
         <>
             {isLoading ? <LoadingBar /> :
                 <TestDiv>
-                    <AnswersProvider>
-                        <TestHeader subject={test.subject} topic={test.topic} />
-                        <TestBody guide={test.guide} questions={test.questions} />
-                        <TestFooter numbQuest={test?.questions.length} />
-                    </AnswersProvider>
+                    {Object.keys(test).length === 0 ?
+                        <EmptyTest tryAgain={tryAgain} /> :
+                        <AnswersProvider>
+                            {finished && <Calification questions={test.questions} />}
+                            <TestHeader subject={test.subject} topic={test.topic} />
+                            <TestBody guide={test.guide} questions={test.questions} />
+                            <TestFooter numbQuest={test?.questions.length} />
+                        </AnswersProvider>}
                 </TestDiv>
             }
         </>

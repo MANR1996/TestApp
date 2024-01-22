@@ -95,7 +95,7 @@ export const Default = {
     }
 };
 
-export const AnswersSelected = {
+export const TestFinished = {
     decorators: [
         (story) =>
             <StoreMock testResultsboxState={FINISHEDMOCKEDSTATE} >

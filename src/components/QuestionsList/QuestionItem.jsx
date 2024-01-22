@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
+import { FailIcon, RightIcon } from "../icons";
 import OptionsList from "../OptionsList";
 import { QuestionCalificationContainer, QuestionItemContainer, Question } from './index.styles'
 
@@ -13,6 +14,11 @@ const QuestionItem = ({ id, question, options }) => {
 
     return (
         <QuestionCalificationContainer data-testid='question-calification-container' >
+            {testResults.finished && (isRightAnswer ? (
+                <RightIcon />
+            ) : (
+                <FailIcon />
+            ))}
             {options?.length > 0 && question &&
                 <QuestionItemContainer rightAnswer={isRightAnswer} finished={testResults.finished} >
                     <Question rightAnswer={isRightAnswer} finished={testResults.finished} >{question}</Question>

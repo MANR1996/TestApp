@@ -73,19 +73,26 @@ global.fetch = jest.fn(() =>
 
 test('render Test view', async () => {
     const { getByText } = render(<AnswersProvider><ThemeMock><StoreMock initialStore ><MemoryRouterMock><Test /></MemoryRouterMock></StoreMock></ThemeMock></AnswersProvider>)
-    await waitFor(() => getByText(TESTDATA.subject));
+    await waitFor(() => getByText('Atrás'));
+    expect(getByText('Atrás')).toBeInTheDocument();
     expect(getByText(TESTDATA.subject)).toBeInTheDocument();
     expect(getByText(TESTDATA.topic)).toBeInTheDocument();
     expect(getByText(TESTDATA.guide)).toBeInTheDocument();
+    await waitFor(() => getByText('Finalizar'));
+    const button = getByText('Finalizar');
+    expect(button).toBeInTheDocument();
+    expect(button).toBeDisabled();
 })
 
 test('render Test view and answer all questions', async () => {
     const { getByText, getAllByTestId } = render(<AnswersProvider><ThemeMock><StoreMock initialStore ><MemoryRouterMock><Test /></MemoryRouterMock></StoreMock></ThemeMock></AnswersProvider>)
-    await waitFor(() => getByText(TESTDATA.subject));
+    await waitFor(() => getByText('Finalizar'));
+    const button = getByText('Finalizar');
     const containers = getAllByTestId('options-list')
     const firstDivs = containers.map(el => el.querySelector('div'));
     firstDivs.forEach(el => {
         fireEvent.click(el);
     });
+    expect(button).not.toBeDisabled();
     global.fetch.mockRestore();
 })

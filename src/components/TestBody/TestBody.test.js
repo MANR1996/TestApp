@@ -4,7 +4,6 @@ import { StoreMock, ThemeMock } from '../../mocks/mocks.jsx';
 import { expect } from '@storybook/test';
 import { AnswersProvider } from '../../contexts/AnswerContext.jsx';
 
-
 const BASICPROPS = {
     guide: 'Test Guide',
     questions: [

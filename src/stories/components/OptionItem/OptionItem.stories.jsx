@@ -37,7 +37,7 @@ export const Default = {
     }
 };
 
-export const Selected = {
+export const FinishedRight = {
     args: {
         id: 1,
         onAnswerQuestion: () => { },
@@ -55,7 +55,7 @@ export const Selected = {
     }
 };
 
-export const Fail = {
+export const FinishedFail = {
     args: {
         id: 1,
         onAnswerQuestion: () => { },
