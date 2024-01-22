@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { AnswersProvider } from "../../contexts/AnswerContext";
 import { theme } from '../../App'
 import { DEFAULTMOCKEDSTATE, FINISHEDMOCKEDSTATE } from '../mocks/constants';
+import { MemoryRouter } from 'react-router-dom';
 import { StoreMock } from "../mocks/utils";
 
 export default {
@@ -15,9 +16,11 @@ export default {
         (Story) => (
             <ThemeProvider theme={theme}>
                 <AnswersProvider>
-                    <StoreMock testResultsboxState={DEFAULTMOCKEDSTATE}>
-                        <Story />
-                    </StoreMock>
+                    <MemoryRouter>
+                        <StoreMock testResultsboxState={DEFAULTMOCKEDSTATE}>
+                            <Story />
+                        </StoreMock>
+                    </MemoryRouter>
                 </AnswersProvider>
             </ThemeProvider>
         ),

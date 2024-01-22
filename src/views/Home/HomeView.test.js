@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 import Error from './index.jsx';
 import { expect } from '@storybook/test';
-import { MemoryRouterMock, ThemeMock } from '../../mocks/mocks.jsx';
+import { MemoryRouterMock, ThemeMock, StoreMock } from '../../mocks/mocks.jsx';
 
 test('renders Home view before do the test', () => {
-    const { getByText } = render(<ThemeMock><MemoryRouterMock><Error /></MemoryRouterMock></ThemeMock>);
+    const { getByText } = render(<ThemeMock><StoreMock initialStore><MemoryRouterMock><Error /></MemoryRouterMock></StoreMock></ThemeMock>);
     expect(getByText('Aplicación Test')).toBeInTheDocument();
     const linkDoTest = getByText('Realizar prueba');
     expect(linkDoTest).toBeInTheDocument();
