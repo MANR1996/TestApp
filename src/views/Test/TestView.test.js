@@ -1,5 +1,6 @@
-import { ThemeMock, MemoryRouterMock } from '../../mocks/mocks';
-import { render, waitFor } from '@testing-library/react';
+import { ThemeMock, StoreMock, MemoryRouterMock } from '../../mocks/mocks';
+import { fireEvent, render, waitFor } from '@testing-library/react';
+import { AnswersProvider } from '../../contexts/AnswerContext';
 import { expect } from '@storybook/test';
 import Test from './index'
 
@@ -71,8 +72,20 @@ global.fetch = jest.fn(() =>
 );
 
 test('render Test view', async () => {
-    const { getByText } = render(<ThemeMock><MemoryRouterMock><Test /></MemoryRouterMock></ThemeMock>)
+    const { getByText } = render(<AnswersProvider><ThemeMock><StoreMock initialStore ><MemoryRouterMock><Test /></MemoryRouterMock></StoreMock></ThemeMock></AnswersProvider>)
     await waitFor(() => getByText(TESTDATA.subject));
     expect(getByText(TESTDATA.subject)).toBeInTheDocument();
     expect(getByText(TESTDATA.topic)).toBeInTheDocument();
+    expect(getByText(TESTDATA.guide)).toBeInTheDocument();
+})
+
+test('render Test view and answer all questions', async () => {
+    const { getByText, getAllByTestId } = render(<AnswersProvider><ThemeMock><StoreMock initialStore ><MemoryRouterMock><Test /></MemoryRouterMock></StoreMock></ThemeMock></AnswersProvider>)
+    await waitFor(() => getByText(TESTDATA.subject));
+    const containers = getAllByTestId('options-list')
+    const firstDivs = containers.map(el => el.querySelector('div'));
+    firstDivs.forEach(el => {
+        fireEvent.click(el);
+    });
+    global.fetch.mockRestore();
 })

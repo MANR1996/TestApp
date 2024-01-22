@@ -1,9 +1,10 @@
 import React, { useEffect, useState, createContext } from 'react'
-import { loadTest } from '../../services/testService'
-import LoadingBar from '../../components/LoadingBar'
 import TestHeader from '../../components/TestHeader'
+import LoadingBar from '../../components/LoadingBar'
+import TestBody from '../../components/TestBody'
+import { AnswersProvider } from '../../contexts/AnswerContext'
+import { loadTest } from '../../services/testService'
 import { Test as TestDiv } from './index.styles'
-
 
 export const AnswersContext = createContext(null);
 
@@ -26,7 +27,10 @@ const Test = () => {
         <>
             {isLoading ? <LoadingBar /> :
                 <TestDiv>
-                    <TestHeader subject={test.subject} topic={test.topic} />
+                    <AnswersProvider>
+                        <TestHeader subject={test.subject} topic={test.topic} />
+                        <TestBody guide={test.guide} questions={test.questions} />
+                    </AnswersProvider>
                 </TestDiv>
             }
         </>
