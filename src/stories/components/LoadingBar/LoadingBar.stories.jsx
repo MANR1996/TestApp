@@ -1,24 +1,22 @@
-import Home from "../views/Home";
-import { MemoryRouter } from 'react-router-dom';
+import LoadingBar from '../../../components/LoadingBar';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../App'
+import { theme } from '../../../App'
 
 export default {
-    title: 'Home',
-    component: Home,
+    title: 'Components/LoadingBar',
+    component: LoadingBar,
     parameters: {
         layout: 'centered',
     },
     decorators: [
         (Story) => (
             <ThemeProvider theme={theme}>
-                < MemoryRouter >
-                    <Story />
-                </MemoryRouter >
+                <Story />
             </ThemeProvider>
         )
     ],
 };
 
 export const Default = {
+    args: {},
 };

@@ -1,8 +1,8 @@
-import Test from "../views/Test";
+import Error from "../../views/Error";
 
 export default {
-    title: 'Test',
-    component: Test,
+    title: 'Views/Error',
+    component: Error,
     parameters: {
         layout: 'centered',
     },
