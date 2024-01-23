@@ -9,7 +9,7 @@ global.fetch = jest.fn(() =>
 
 test('prueba fetchFromAPI', async () => {
     const data = await loadTest();
-    expect(global.fetch).toHaveBeenCalledWith('src/mocks/test.json');
+    expect(global.fetch).toHaveBeenCalledWith('/test.json');
     expect(data).toEqual({ data: 'test data' });
     global.fetch.mockRestore();
 });

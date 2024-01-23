@@ -1,5 +1,5 @@
 export const loadTest = () => {
-    return fetch('src/mocks/test.json')
+    return fetch('/test.json')
         .then(response => {
             if (!response.ok) {
                 return {}
