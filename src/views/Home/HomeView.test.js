@@ -5,7 +5,7 @@ import { MemoryRouterMock, ThemeMock, StoreMock } from '../../mocks/mocks.jsx';
 
 test('renders Home view before do the test', () => {
     const { getByText } = render(<ThemeMock><StoreMock initialStore><MemoryRouterMock><Error /></MemoryRouterMock></StoreMock></ThemeMock>);
-    expect(getByText('Aplicación Test')).toBeInTheDocument();
+    expect(getByText('Test App')).toBeInTheDocument();
     const linkDoTest = getByText('Realizar prueba');
     expect(linkDoTest).toBeInTheDocument();
     expect(linkDoTest.getAttribute('href')).toBe('/test');
@@ -17,7 +17,7 @@ test('renders Home view before do the test', () => {
 
 test('renders Home view after do the test', () => {
     const { getByText } = render(<ThemeMock><StoreMock><MemoryRouterMock><Error /></MemoryRouterMock></StoreMock></ThemeMock>);
-    expect(getByText('Aplicación Test')).toBeInTheDocument();
+    expect(getByText('Test App')).toBeInTheDocument();
     const linkDoTest = getByText('Realizar prueba');
     expect(linkDoTest).toBeInTheDocument();
     expect(linkDoTest.getAttribute('href')).toBe('/');

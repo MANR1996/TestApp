@@ -9,7 +9,7 @@ function Home() {
 
     return (
         <div>
-            <HomeTitle>Aplicación Test</HomeTitle>
+            <HomeTitle>Test App</HomeTitle>
             <HomeBtns>
                 <LinkButton disabled={finished} text={'Realizar prueba'} link='/test' />
                 <LinkButton disabled={!finished} text={'Resultado test'} link='/test' />

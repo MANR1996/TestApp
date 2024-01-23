@@ -5,5 +5,5 @@ import App from './App';
 
 test('render App', () => {
     const { getByText } = render(<StoreMock initialStore> <App /></StoreMock>)
-    expect(getByText('Aplicación Test')).toBeInTheDocument()
+    expect(getByText('Test App')).toBeInTheDocument()
 })

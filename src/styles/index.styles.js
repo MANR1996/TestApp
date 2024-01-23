@@ -4,7 +4,7 @@ import { MEDIAQUERIES } from "./mediaQueries.styles";
 export const TestButtons = styled.div`
     column-gap: 16px;
     display: flex;
-    margin-top: 36px;
+    margin-top: 32px;
 
     @media ${MEDIAQUERIES.tablet} {
         flex-direction: column;

@@ -4,7 +4,7 @@ export const Calification = styled.div.withConfig({
     shouldForwardProp: (prop) => prop !== 'calification',
 })`
     position: absolute;
-    top: 6rem;
+    top: 10px;
     left: 0;
     border: 1px solid #ccc;
     padding: 4px 8px;

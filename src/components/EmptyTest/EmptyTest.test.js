@@ -6,7 +6,7 @@ import { expect } from '@storybook/test';
 test('renders emptytest without props', () => {
     const { getByText } = render(<ThemeMock><MemoryRouterMock><EmptyTest /></MemoryRouterMock></ThemeMock>);
     const linkElement = getByText('Atrás');
-    expect(getByText('Lo sentimos, no encontramos ningún test')).toBeInTheDocument();
+    expect(getByText('Lo sentimos, no encontramos ningún test.')).toBeInTheDocument();
     expect(getByText('Reintentar')).toBeInTheDocument();
     expect(linkElement).toBeInTheDocument();
     expect(linkElement).toBeInTheDocument();
@@ -17,7 +17,7 @@ test('renders emptytest with expected props', () => {
     const props = { tryAgain: () => { } }
     const { getByText } = render(<ThemeMock><MemoryRouterMock><EmptyTest {...props} /></MemoryRouterMock></ThemeMock>);
     const linkElement = getByText('Atrás');
-    expect(getByText('Lo sentimos, no encontramos ningún test')).toBeInTheDocument();
+    expect(getByText('Lo sentimos, no encontramos ningún test.')).toBeInTheDocument();
     expect(getByText('Reintentar')).toBeInTheDocument();
     expect(linkElement).toBeInTheDocument();
     expect(linkElement).toBeInTheDocument();

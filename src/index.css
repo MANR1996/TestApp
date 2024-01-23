@@ -12,12 +12,22 @@
 }
 
 #root {
+  width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  place-content: center;
   margin: 0 auto auto;
   padding: 2rem;
-  position: relative;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  place-content: center;
 }
 
 body {
+  width: 100%;
   margin: 0;
   display: flex;
   place-items: center;
@@ -43,4 +53,10 @@ body::after {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
 }

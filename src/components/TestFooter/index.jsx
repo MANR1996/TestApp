@@ -5,7 +5,7 @@ import { useSelector } from "react-redux"
 import { finishTest, restartTest } from '../../redux/testSlice';
 import { Button, LinkButton } from '../Button';
 import { AnswersContext } from '../../contexts/AnswerContext';
-import { TestButtons } from '../../styles/StyledComponents.styles';
+import { TestButtons } from '../../styles/index.styles';
 
 const TestFooter = ({ numbQuest }) => {
 
