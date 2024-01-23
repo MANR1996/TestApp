@@ -1,11 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LinkButton } from '../../components/Button';
-import styled from "styled-components";
-
-const StyledContanier = styled.div`
-    color: ${props => props.theme.light.colorPalette['color-100']};
-`;
+import { StyledContanier } from './index,styles';
 
 const Error = () => {
 

@@ -1,10 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Subject, Topic } from './index.styles'
-
-const StyledHeader = styled.div`
-    border-bottom: 1px solid black;
-`;
+import { StyledHeader, Subject, Topic } from './index.styles'
 
 const TestHeader = ({ subject, topic }) => {
     return (
