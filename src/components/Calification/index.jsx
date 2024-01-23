@@ -6,6 +6,7 @@ const Calification = ({ questions }) => {
 
     const answers = useSelector((state) => state.testResults.answers);
 
+    // Calculate the grade based on 10
     const calculateCalification = useMemo(() => {
         let cont = 0;
         if (answers?.length > 0 && questions?.length > 0) {

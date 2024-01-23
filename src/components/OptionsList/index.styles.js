@@ -33,6 +33,9 @@ export const OptionLabel = styled.label.withConfig({
     cursor: ${props => props.testInProgress ? 'pointer' : 'default'}
 `;
 
+// the item marked and the test finished, if the answer is correct there will be a green check, if it is not correct there will be a red X
+// with the test incomplete, if the item is marked there will be a green check, otherwise the style will be maintained
+// If the item is not marked and the test is finished, if the answer is correct it will maintain the style, if it is not correct there will be a green check
 export const Checkmark = styled.div.withConfig({
     shouldForwardProp: (prop) => prop !== 'finished' && prop !== 'rightAnswer',
 })`

@@ -18,6 +18,8 @@ const OptionItem = ({ option, id, rightAnswer, testResults }) => {
 
     const testInProgress = (!testResults?.finished);
 
+    // If the test is finished, the correct answer will be marked.
+    // If the test is finished, the correct answer will be marked, otherwise the one decided by the user will be marked.
     return (
         <OptionItemContainer testInProgress={testInProgress} data-testid='option-item-container'
             onClick={() => testInProgress && answers?.answer !== option && onAnswerQuestion(id, option)}

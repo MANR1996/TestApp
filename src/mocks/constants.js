@@ -1,4 +1,3 @@
-
 export const DEFAULTMOCKEDSTATE = {
     testResults: {
         answers: [

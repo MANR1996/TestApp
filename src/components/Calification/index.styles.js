@@ -1,5 +1,6 @@
 import styled from "styled-components"
 
+// Depending on the note it will be the background color.
 export const Calification = styled.div.withConfig({
     shouldForwardProp: (prop) => prop !== 'calification',
 })`
