@@ -1,6 +1,5 @@
 import LoadingBar from '../../../components/LoadingBar';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../../App'
+import { ThemeMock } from '../../../mocks/mocks';
 
 export default {
     title: 'Components/LoadingBar',
@@ -10,9 +9,9 @@ export default {
     },
     decorators: [
         (Story) => (
-            <ThemeProvider theme={theme}>
+            <ThemeMock>
                 <Story />
-            </ThemeProvider>
+            </ThemeMock>
         )
     ],
 };

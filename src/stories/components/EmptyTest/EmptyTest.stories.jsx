@@ -1,9 +1,7 @@
 import EmptyTest from "../../../components/EmptyTest";
-import styled from "styled-components";
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../../App'
 import { MemoryRouter } from "react-router-dom";
-import { StyledContanier } from "../../styles/index.styles";
+import { StyledContanier } from "../../../styles/index.styles";
+import { ThemeMock } from "../../../mocks/mocks";
 
 export default {
     title: 'Components/EmptyTest',
@@ -13,13 +11,13 @@ export default {
     },
     decorators: [
         (Story) => (
-            <ThemeProvider theme={theme}>
+            <ThemeMock>
                 <MemoryRouter >
                     <StyledContanier>
                         <Story />
                     </StyledContanier>
                 </MemoryRouter >
-            </ThemeProvider>
+            </ThemeMock>
         ),
     ],
 };

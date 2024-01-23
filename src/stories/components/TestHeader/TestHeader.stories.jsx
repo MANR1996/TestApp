@@ -1,5 +1,5 @@
 import TestHeader from "../../../components/TestHeader";
-import { StyledContanier } from "../../styles/index.styles";
+import { StyledContanier } from "../../../styles/index.styles";
 
 export default {
     title: 'Components/TestHeader',

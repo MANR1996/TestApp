@@ -1,9 +1,7 @@
 import Home from "../../views/Home";
 import { MemoryRouter } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../App'
-import { StoreMock } from "../mocks/utils";
-import { DEFAULTMOCKEDSTATE, FINISHEDMOCKEDSTATE } from "../mocks/constants";
+import { DEFAULTMOCKEDSTATE } from "../../mocks/constants";
+import { StoreMock, ThemeMock } from "../../mocks/mocks";
 
 export default {
     title: 'Views/Home',
@@ -13,11 +11,11 @@ export default {
     },
     decorators: [
         (Story) => (
-            <ThemeProvider theme={theme}>
+            <ThemeMock>
                 < MemoryRouter >
                     <Story />
                 </MemoryRouter >
-            </ThemeProvider>
+            </ThemeMock>
         )
     ],
 };
@@ -25,7 +23,7 @@ export default {
 export const Default = {
     decorators: [
         (Story) => (
-            <StoreMock testResultsboxState={DEFAULTMOCKEDSTATE}>
+            <StoreMock customStore={DEFAULTMOCKEDSTATE}>
                 <Story />
             </StoreMock >
         )
@@ -34,7 +32,7 @@ export const Default = {
 export const TestFinished = {
     decorators: [
         (Story) => (
-            <StoreMock testResultsboxState={FINISHEDMOCKEDSTATE}>
+            <StoreMock>
                 <Story />
             </StoreMock >
         )

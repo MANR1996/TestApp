@@ -24,7 +24,6 @@ export const theme = {
   }
 }
 
-
 function App() {
 
   return (

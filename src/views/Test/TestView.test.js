@@ -1,4 +1,5 @@
-import { ThemeMock, StoreMock, MemoryRouterMock } from '../../mocks/mocks';
+import { MemoryRouter } from 'react-router-dom';
+import { ThemeMock, StoreMock } from '../../mocks/mocks';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { AnswersProvider } from '../../contexts/AnswerContext';
 import { expect } from '@storybook/test';
@@ -72,7 +73,7 @@ global.fetch = jest.fn(() =>
 );
 
 test('render Test view', async () => {
-    const { getByText } = render(<AnswersProvider><ThemeMock><StoreMock initialStore ><MemoryRouterMock><Test /></MemoryRouterMock></StoreMock></ThemeMock></AnswersProvider>)
+    const { getByText } = render(<AnswersProvider><ThemeMock><StoreMock initialStore ><MemoryRouter><Test /></MemoryRouter></StoreMock></ThemeMock></AnswersProvider>)
     await waitFor(() => getByText('Atrás'));
     expect(getByText('Atrás')).toBeInTheDocument();
     expect(getByText(TESTDATA.subject)).toBeInTheDocument();
@@ -85,7 +86,7 @@ test('render Test view', async () => {
 })
 
 test('render Test view and answer all questions', async () => {
-    const { getByText, getAllByTestId } = render(<AnswersProvider><ThemeMock><StoreMock initialStore ><MemoryRouterMock><Test /></MemoryRouterMock></StoreMock></ThemeMock></AnswersProvider>)
+    const { getByText, getAllByTestId } = render(<AnswersProvider><ThemeMock><StoreMock initialStore ><MemoryRouter><Test /></MemoryRouter></StoreMock></ThemeMock></AnswersProvider>)
     await waitFor(() => getByText('Finalizar'));
     const button = getByText('Finalizar');
     const containers = getAllByTestId('options-list')

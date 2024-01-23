@@ -1,6 +1,5 @@
 import { Button } from '../../../components/Button';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../../App'
+import { ThemeMock } from '../../../mocks/mocks';
 
 export default {
   title: 'Components/Button',
@@ -10,9 +9,9 @@ export default {
   },
   decorators: [
     (Story) => (
-      <ThemeProvider theme={theme}>
+      <ThemeMock>
         <Story />
-      </ThemeProvider>
+      </ThemeMock>
     ),
   ],
 };

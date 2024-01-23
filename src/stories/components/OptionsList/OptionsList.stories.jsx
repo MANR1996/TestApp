@@ -1,9 +1,8 @@
 import { AnswersProvider } from "../../../contexts/AnswerContext";
 import OptionsList from "../../../components/OptionsList";
 import styled from "styled-components";
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../../App'
-import { StyledContanier } from "../../styles/index.styles";
+import { StyledContanier } from "../../../styles/index.styles";
+import { ThemeMock } from "../../../mocks/mocks";
 
 export default {
     title: 'Components/OptionsList',
@@ -13,11 +12,11 @@ export default {
     },
     decorators: [
         (Story) => (<AnswersProvider >
-            <ThemeProvider theme={theme}>
+            <ThemeMock>
                 <StyledContanier >
                     <Story />
                 </StyledContanier>
-            </ThemeProvider>
+            </ThemeMock>
         </AnswersProvider>
         )
     ],

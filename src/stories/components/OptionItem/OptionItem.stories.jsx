@@ -1,10 +1,8 @@
 import React from "react";
 import { AnswersProvider } from "../../../contexts/AnswerContext";
 import OptionItem from '../../../components/OptionsList/OptionItem';
-import styled from "styled-components";
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../../App'
-import { StyledContanier } from "../../styles/index.styles";
+import { StyledContanier } from "../../../styles/index.styles";
+import { ThemeMock } from "../../../mocks/mocks";
 
 export default {
     title: 'Components/OptionItem',
@@ -13,12 +11,13 @@ export default {
         layout: 'centered',
     },
     decorators: [
-        (Story) => (<AnswersProvider>
-            <ThemeProvider theme={theme}>
+        (Story) => (
+        <AnswersProvider>
+            <ThemeMock>
                 <StyledContanier >
                     <Story />
                 </StyledContanier>
-            </ThemeProvider>
+            </ThemeMock>
         </AnswersProvider>
         )
     ],

@@ -1,7 +1,6 @@
 import { LinkButton } from '../../../components/Button';
 import { MemoryRouter } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../../App'
+import { ThemeMock } from '../../../mocks/mocks';
 
 export default {
   title: 'Components/Button',
@@ -11,11 +10,11 @@ export default {
   },
   decorators: [
     (Story) => (
-      <ThemeProvider theme={theme}>
+      <ThemeMock>
         < MemoryRouter >
           <Story />
         </MemoryRouter >
-      </ThemeProvider>
+      </ThemeMock>
     )
   ],
 };

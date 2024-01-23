@@ -1,10 +1,11 @@
 import { render } from '@testing-library/react';
 import Error from './index.jsx';
 import { expect } from '@storybook/test';
-import { MemoryRouterMock, ThemeMock } from '../../mocks/mocks.jsx';
+import { MemoryRouter } from 'react-router-dom';
+import { ThemeMock } from '../../mocks/mocks.jsx';
 
 test('renders Error view', () => {
-    const { getByText } = render(<ThemeMock><MemoryRouterMock><Error /></MemoryRouterMock></ThemeMock>);
+    const { getByText } = render(<ThemeMock><MemoryRouter><Error /></MemoryRouter></ThemeMock>);
     const linkElement = getByText('Redireccionar ahora');
     expect(getByText('Wow, de momento no contamos con este sitio')).toBeInTheDocument();
     expect(linkElement).toBeInTheDocument();

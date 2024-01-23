@@ -1,11 +1,9 @@
 import QuestionItem from '../../../components/QuestionsList/QuestionItem';
 import { AnswersProvider } from "../../../contexts/AnswerContext";
-import { DEFAULTMOCKEDSTATE, FINISHEDMOCKEDSTATE } from '../../mocks/constants.js';
-import { StoreMock } from '../../mocks/utils.jsx';
+import { DEFAULTMOCKEDSTATE } from '../../../mocks/constants.js';
 import styled from "styled-components";
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../../App'
-import { StyledContanier } from "../../styles/index.styles";
+import { StyledContanier } from "../../../styles/index.styles";
+import { StoreMock, ThemeMock } from '../../../mocks/mocks.jsx';
 
 export default {
     title: 'Components/QuestionItem',
@@ -16,9 +14,9 @@ export default {
     decorators: [
         (Story) => (
             <AnswersProvider >
-                <ThemeProvider theme={theme}>
+                <ThemeMock>
                     <Story />
-                </ThemeProvider>
+                </ThemeMock>
             </AnswersProvider>
         )
     ]
@@ -27,7 +25,7 @@ export default {
 export const Default = {
     decorators: [
         (story) =>
-            <StoreMock testResultsboxState={DEFAULTMOCKEDSTATE} >
+            <StoreMock customStore={DEFAULTMOCKEDSTATE} >
                 <StyledContanier >
                     {story()}
                 </StyledContanier>
@@ -51,7 +49,7 @@ export const Default = {
 export const FinishedRight = {
     decorators: [
         (Story) =>
-            <StoreMock testResultsboxState={FINISHEDMOCKEDSTATE} >
+            <StoreMock >
                 <StyledContanier>
                     <Story />
                 </StyledContanier>
@@ -76,7 +74,7 @@ export const FinishedRight = {
 export const FinishedFail = {
     decorators: [
         (Story) =>
-            <StoreMock testResultsboxState={FINISHEDMOCKEDSTATE} >
+            <StoreMock>
                 <StyledContanier>
                     <Story />
                 </StyledContanier>

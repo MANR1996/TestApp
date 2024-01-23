@@ -1,10 +1,9 @@
 import Calification from '../../../components/Calification';
-import { StoreMock } from '../../mocks/utils';
-import { INSUFFICIENTMOCKEDSTATE, NOTABLEMOCKEDSTATE, OUTSTANDINGMOCKEDSTATE, SUFFICIENTMOCKEDSTATE } from '../../mocks/constants';
+import { INSUFFICIENTMOCKEDSTATE, NOTABLEMOCKEDSTATE, OUTSTANDINGMOCKEDSTATE, SUFFICIENTMOCKEDSTATE } from '../../../mocks/constants';
 import styled from 'styled-components'
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../../App'
-import { StyledDiv } from '../../styles/index.styles';
+import { ThemeMock } from '../../../mocks/mocks';
+import { StyledDiv } from '../../../styles/index.styles';
+import { StoreMock } from '../../../mocks/mocks';
 
 const StyledContanier = styled.div`
     display: block;
@@ -22,14 +21,14 @@ export default {
     },
     decorators: [
         (Story) => (
-            <ThemeProvider theme={theme}>
+            <ThemeMock >
                 <StyledContanier>
                     <StyledDiv>
                         TEST
                         <Story />
                     </StyledDiv>
                 </StyledContanier >
-            </ThemeProvider>
+            </ThemeMock>
         )
     ],
 };
@@ -93,7 +92,7 @@ export const Insufficient = {
     },
     decorators: [
         (Story) => (
-            <StoreMock testResultsboxState={INSUFFICIENTMOCKEDSTATE}>
+            <StoreMock customStore={INSUFFICIENTMOCKEDSTATE}>
                 <Story />
             </StoreMock>
         )
@@ -159,7 +158,7 @@ export const Sufficient = {
     },
     decorators: [
         (Story) => (
-            <StoreMock testResultsboxState={SUFFICIENTMOCKEDSTATE}>
+            <StoreMock customStore={SUFFICIENTMOCKEDSTATE}>
                 <Story />
             </StoreMock>
         )
@@ -225,7 +224,7 @@ export const Notable = {
     },
     decorators: [
         (Story) => (
-            <StoreMock testResultsboxState={NOTABLEMOCKEDSTATE}>
+            <StoreMock customStore={NOTABLEMOCKEDSTATE}>
                 <Story />
             </StoreMock>
         )
@@ -291,7 +290,7 @@ export const Outstanding = {
     },
     decorators: [
         (Story) => (
-            <StoreMock testResultsboxState={OUTSTANDINGMOCKEDSTATE}>
+            <StoreMock customStore={OUTSTANDINGMOCKEDSTATE}>
                 <Story />
             </StoreMock>
         )

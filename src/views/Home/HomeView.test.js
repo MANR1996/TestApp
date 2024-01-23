@@ -1,10 +1,11 @@
 import { render } from '@testing-library/react';
 import Error from './index.jsx';
 import { expect } from '@storybook/test';
-import { MemoryRouterMock, ThemeMock, StoreMock } from '../../mocks/mocks.jsx';
+import { MemoryRouter } from 'react-router-dom';
+import { ThemeMock, StoreMock } from '../../mocks/mocks.jsx';
 
 test('renders Home view before do the test', () => {
-    const { getByText } = render(<ThemeMock><StoreMock initialStore><MemoryRouterMock><Error /></MemoryRouterMock></StoreMock></ThemeMock>);
+    const { getByText } = render(<ThemeMock><StoreMock initialStore><MemoryRouter><Error /></MemoryRouter></StoreMock></ThemeMock>);
     expect(getByText('Test App')).toBeInTheDocument();
     const linkDoTest = getByText('Realizar prueba');
     expect(linkDoTest).toBeInTheDocument();
@@ -16,7 +17,7 @@ test('renders Home view before do the test', () => {
 });
 
 test('renders Home view after do the test', () => {
-    const { getByText } = render(<ThemeMock><StoreMock><MemoryRouterMock><Error /></MemoryRouterMock></StoreMock></ThemeMock>);
+    const { getByText } = render(<ThemeMock><StoreMock><MemoryRouter><Error /></MemoryRouter></StoreMock></ThemeMock>);
     expect(getByText('Test App')).toBeInTheDocument();
     const linkDoTest = getByText('Realizar prueba');
     expect(linkDoTest).toBeInTheDocument();

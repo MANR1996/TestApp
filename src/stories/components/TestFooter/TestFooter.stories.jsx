@@ -1,11 +1,10 @@
 import TestFooter from "../../../components/TestFooter";
-import { ThemeProvider } from "styled-components";
-import { ANSWEREDMOCKEDSTATE, CONTEXTVALUE, DEFAULTMOCKEDSTATE, FINISHEDMOCKEDSTATE } from "../../mocks/constants";
-import { AnswersProviderMock, StoreMock } from "../../mocks/utils";
+import { ANSWEREDMOCKEDSTATE, CONTEXTVALUE, DEFAULTMOCKEDSTATE } from "../../../mocks/constants";
+import { AnswersProviderMock } from "../../../mocks/mocks";
 import { MemoryRouter } from "react-router-dom";
-import { theme } from '../../../App'
 import styled from "styled-components";
-import { StyledDiv } from "../../styles/index.styles";
+import { StyledDiv } from "../../../styles/index.styles";
+import { StoreMock, ThemeMock } from "../../../mocks/mocks";
 
 const StyledContanier = styled.div`
     display: block;
@@ -24,9 +23,9 @@ export default {
     decorators: [
         (Story) => (
             <MemoryRouter>
-                <ThemeProvider theme={theme}>
+                <ThemeMock>
                     <Story />
-                </ThemeProvider>
+                </ThemeMock>
             </MemoryRouter>
         )
     ],
@@ -93,7 +92,7 @@ export const Default = {
     decorators: [
         (story) =>
             <AnswersProviderMock>
-                <StoreMock testResultsboxState={DEFAULTMOCKEDSTATE}>
+                <StoreMock customStore={DEFAULTMOCKEDSTATE}>
                     <StyledContanier >
                         <StyledDiv >
                             {story()}
@@ -111,7 +110,7 @@ export const TestFinished = {
     decorators: [
         (story) =>
             <AnswersProviderMock initialContextValue={CONTEXTVALUE}>
-                <StoreMock testResultsboxState={ANSWEREDMOCKEDSTATE}>
+                <StoreMock customStore={ANSWEREDMOCKEDSTATE}>
                     <StyledContanier>
                         <StyledDiv>
                             {story()}
@@ -129,7 +128,7 @@ export const TestReview = {
     decorators: [
         (story) =>
             <AnswersProviderMock>
-                <StoreMock testResultsboxState={FINISHEDMOCKEDSTATE}>
+                <StoreMock>
                     <StyledContanier>
                         <StyledDiv>
                             {story()}
